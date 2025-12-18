@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body {
+  @apply h-full;
+}
+
+body {
+  @apply bg-background text-gray-900 antialiased;
+  font-family: theme("fontFamily.sans");
+}
+
+:focus-visible {
+  outline: 2px solid theme("colors.accent");
+  outline-offset: 3px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
