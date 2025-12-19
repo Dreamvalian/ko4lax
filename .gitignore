@@ -9,6 +9,8 @@
 # Next.js build output
 /out/
 /build
+/.next/
+/.next
 
 # Debug logs
 npm-debug.log*
