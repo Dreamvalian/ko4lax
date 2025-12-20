@@ -1,6 +1,13 @@
+"use client";
 import { ProfilePager } from "@/components/ProfilePager";
+import { useEffect, useState } from "react";
 
 export default function Page() {
+  const [showSplash, setShowSplash] = useState(true);
+  useEffect(() => {
+    const t = setTimeout(() => setShowSplash(false), 1100);
+    return () => clearTimeout(t);
+  }, []);
   const profile = {
     handle: "ko4lax",
     displayName: "Koala",
@@ -68,10 +75,22 @@ export default function Page() {
   };
 
   return (
-    <main className='min-h-screen flex items-center justify-center px-3 py-2 sm:px-8 sm:py-6'>
-      <div className='w-full max-w-4xl'>
-        <ProfilePager profile={profile} />
-      </div>
-    </main>
+    <>
+      {showSplash && (
+        <div className='splash-overlay' aria-hidden='true'>
+          <div className='splash-backdrop'></div>
+          <div className='creeper-face'>
+            <div className='eye left'></div>
+            <div className='eye right'></div>
+            <div className='mouth'></div>
+          </div>
+        </div>
+      )}
+      <main className='min-h-screen flex items-center justify-center px-3 py-2 sm:px-8 sm:py-6'>
+        <div className='w-full max-w-4xl'>
+          <ProfilePager profile={profile} />
+        </div>
+      </main>
+    </>
   );
 }

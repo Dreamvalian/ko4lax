@@ -55,6 +55,7 @@ export function ProfilePager({ profile }: ProfilePagerProps) {
 
   const isOverview = pageIndex === 0;
   const isBio = pageIndex === 1;
+  const isHighlights = pageIndex === 2;
   const pageLabel =
     pageIndex === 0
       ? "Page 1 of 3 · Overview"
@@ -86,7 +87,7 @@ export function ProfilePager({ profile }: ProfilePagerProps) {
   return (
     <div className='w-full relative'>
       {/* Decorative peeking avatar for Highlights page */}
-      {pageIndex === 2 && (
+      {isHighlights && (
         <>
           <div className='absolute -left-20 xl:-left-32 top-1/2 -translate-y-1/2 w-48 h-48 xl:w-64 xl:h-64 -z-10 hidden lg:block transition-all duration-500 animate-in fade-in slide-in-from-right-4'>
             <Image
@@ -360,9 +361,7 @@ export function ProfilePager({ profile }: ProfilePagerProps) {
               </section>
             )}
 
-            {!isOverview && !isBio && (
-              <HighlightsSection items={profile.highlights} />
-            )}
+            {isHighlights && <HighlightsSection items={profile.highlights} />}
 
             <footer className='mt-auto pt-2 text-[11px] sm:text-xs text-subtle flex justify-between gap-3'>
               <span className='flex items-center gap-2'>

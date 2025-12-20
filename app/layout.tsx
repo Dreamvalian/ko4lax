@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { CustomCursor } from "@/components/CustomCursor";
 
 export const metadata: Metadata = {
   title: "koala.is-a.dev — online presence",
   description:
     "A minimal, calm profile of an online identity — Discord, Twitter, and a small collection of digital highlights.",
   metadataBase: new URL("https://example.com"),
+  icons: { icon: "/profile.png" },
   openGraph: {
     title: "koala.is-a.dev — online presence",
     description:
@@ -29,7 +31,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body>{children}</body>
+      <body>
+        <CustomCursor />
+        {children}
+      </body>
     </html>
   );
 }
