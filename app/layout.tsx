@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   title: "koala.is-a.dev — online presence",
   description:
     "A minimal, calm profile of an online identity — Discord, Twitter, and a small collection of digital highlights.",
-  metadataBase: new URL("https://example.com"),
+  metadataBase: new URL("https://ko4lax.me"),
   icons: { icon: "/profile.png" },
   openGraph: {
     title: "koala.is-a.dev — online presence",
     description:
       "A minimal, calm profile of an online identity — Discord, Twitter, and a small collection of digital highlights.",
-    url: "https://example.com",
+    url: "https://ko4lax.me",
     siteName: "koala.is-a.dev",
     type: "website",
   },
