@@ -8,6 +8,13 @@ export default function Page() {
     const t = setTimeout(() => setShowSplash(false), 1100);
     return () => clearTimeout(t);
   }, []);
+  useEffect(() => {
+    if (process.env.NEXT_PUBLIC_USE_LEGACY_INDEX === "1") {
+      const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+      const target = `${base}/legacy-index.html`;
+      window.location.assign(target);
+    }
+  }, []);
   const profile = {
     handle: "ko4lax",
     displayName: "Koala",
